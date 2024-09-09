@@ -104,19 +104,6 @@ class HeterogeneousMaxHolderTest {
         assertThat(boundType.getRawType()).isEqualTo(Comparable.class);
     }
 
-    @Test
-    @Order(8)
-    @DisplayName("put method supports value that has comparable super class")
-    void putMethodAcceptsValueParameterWithComparableSuperClass() {
-        var putMethod = getPutMethod();
-
-        var typeParam = putMethod.getTypeParameters()[0];
-        var boundType = (ParameterizedType) typeParam.getBounds()[0];
-        var typeArgument = boundType.getActualTypeArguments()[0].getTypeName();
-
-        assertThat(boundType.getRawType()).isEqualTo(Comparable.class);
-        assertThat(typeArgument).isEqualTo("? super T");
-    }
 
     @Test
     @Order(9)

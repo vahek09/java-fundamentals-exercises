@@ -30,6 +30,12 @@ public class Functions {
 
         // todo: according to the javadoc add functions using lambda expression
 
+        intFunctionMap.addFunction("abs", Math::abs);
+        intFunctionMap.addFunction("sgn", x -> (int) Math.signum(x));
+        intFunctionMap.addFunction("increment", x -> x + 1);
+        intFunctionMap.addFunction("decrement", x -> x - 1);
+        intFunctionMap.addFunction("square", x -> x*x);
+
         return intFunctionMap;
     }
 }

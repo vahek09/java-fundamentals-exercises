@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -17,5 +20,19 @@ public abstract class BaseEntity {
     public BaseEntity(UUID uuid) {
         this.uuid = uuid;
         this.createdOn = LocalDateTime.now();
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public static boolean hasDuplicatesByUUID(Collection<? extends BaseEntity> entities) {
+        Set<UUID> seenUUIDs = new HashSet<>();
+        for (BaseEntity entity : entities) {
+            if (!seenUUIDs.add(entity.getUuid())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

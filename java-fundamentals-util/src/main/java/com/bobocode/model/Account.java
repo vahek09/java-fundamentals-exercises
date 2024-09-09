@@ -20,5 +20,9 @@ public class Account {
     private Sex sex;
     private LocalDate creationDate;
     private BigDecimal balance = BigDecimal.ZERO;
+
+    public String getGender() {
+        return sex.name();
+    }
 }
 
