@@ -55,7 +55,7 @@ public class CrazyStreams {
      */
     public Map<Boolean, List<Account>> partitionMaleAccounts() {
         return accounts.stream()
-                .collect(Collectors.partitioningBy(account -> "male".equalsIgnoreCase(account.getGender())));
+                .collect(Collectors.partitioningBy(account -> "male".equalsIgnoreCase(account.getSex().name())));
     }
     /**
      * Returns a {@link Map} that stores accounts grouped by its email domain. A map key is {@link String} which is an

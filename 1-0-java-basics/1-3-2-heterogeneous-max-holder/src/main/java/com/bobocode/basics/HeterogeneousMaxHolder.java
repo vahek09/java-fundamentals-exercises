@@ -36,7 +36,7 @@ public class HeterogeneousMaxHolder {
      * @return a smaller value among the provided value and the current maximum
      */
     // todo: implement a method according to javadoc
-    public <T extends Comparable<T>> T put(Class<T> key, T value) {
+    public <T extends Comparable<? super T>> T put(Class<T> key, T value) {
         Objects.requireNonNull(key, "Key must not be null");
         Objects.requireNonNull(value, "Value must not be null");
 
